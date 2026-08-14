@@ -1,0 +1,18 @@
+services:
+  bot:
+    build: .
+    container_name: aigis-bot
+    restart: unless-stopped
+    environment:
+      - TOKEN=${TOKEN}
+      - POT_PROVIDER_URL=http://pot-provider:4416
+      - YTDLP_DEBUG=${YTDLP_DEBUG:-0}
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+    depends_on:
+      - pot-provider
+
+  pot-provider:
+    image: brainicism/bgutil-ytdlp-pot-provider
+    container_name: aigis-pot-provider
+    restart: unless-stopped
