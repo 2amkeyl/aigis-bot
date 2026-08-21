@@ -1,0 +1,8 @@
+discord.py
+yt-dlp
+PyNaCl
+davey
+python-dotenv
+bgutil-ytdlp-pot-provider
+aiohttp
+spotipy
